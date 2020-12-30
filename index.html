@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- https://cdnjs.com/libraries/font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+
+    <!-- https://fonts.google.com/specimenTab?standard-styles#standard-styles -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="./svg/search-solid.svg"
+      aria-details="Favicon - Via https://fontawesome.com/icons/search?style=solid"
+    />
+
+    <link rel="stylesheet" type="text/css" href="dist/css/style.css" />
+    <script src="./js/main.js" type="module"></script>
+
+    <title>Search App</title>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ul class="topnav">
+          <li><a href="#" class="active">SearchApp</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1 class="offscreen">Search App using the Wikipedia search engine</h1>
+
+      <section class="searchEntrySection">
+        <h2 class="offscreen">Search term entry</h2>
+
+        <form id="searchBar" class="searchBar" role="search">
+          <label class="offscreen" for="search">Enter a term in the bar</label>
+          <input id="search" type="text" autocomplete="off" role="searchbox" />
+          <!-- This div is actually "wrap-around" a btn. Reason behind it is because we would like have to search instead, 
+          when we press enter and not delete the text -->
+          <div
+            id="clearTxt"
+            class="none button clearTxt"
+            role="button"
+            tabindex="0"
+            aria-label="Clear term from the searchbar"
+          >
+            <i
+              class="fas fa-times-circle"
+              aria-details="Circle - Via https://fontawesome.com/icons/times-circle?style=solid "
+            ></i>
+          </div>
+
+          <button
+            id="searchBtn"
+            class="button searchBtn"
+            type="submit"
+            aria-label="Submit button"
+          >
+            <i
+              class="fas fa-search"
+              aria-details="Search icon - Via https://fontawesome.com/icons/search?style=solid "
+            ></i>
+          </button>
+        </form>
+      </section>
+
+      <section class="searchResultSection">
+        <h2 class="offscreen">Search result</h2>
+        <div class="statsBar">
+          <!-- Based on the searchterm the result then will be shown in this "stats" div. With the help of aria-live we
+          can also get info about how many results there were found and display it in UI -->
+          <div id="stats" class="stats" aria-live="assertive"></div>
+        </div>
+        <div id="searchResults" class="searchResults"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        <span aria-hidden="true">&lt;&lt;</span> Credit to
+        <a href="https://www.wikipedia.org" target="_blank">Wikipedia </a> and
+        their API for making the search engine possible
+        <span aria-hidden="true">&gt;&gt;</span>
+      </p>
+    </footer>
+  </body>
+</html>
